@@ -120,13 +120,7 @@ sudo firewall-cmd --reload
 systemctl disable firewalld
 ```
 ### OLD DB RESTORING
+> Drop the existing bugzilla database and create an empty bugzilla database.
 ```
-Drop the existing redmine database and create empty redmine database.
-mysql -u root -p redmine < redmine-backup.sql
-bundle exec rake redmine:plugins:migrate RAILS_ENV=production
-bundle exec rake db:migrate RAILS_ENV=production
-bundle exec rake tmp:cache:clear
-changing default password of admin
-update users set hashed_password = '353e8061f2befecb6818ba0c034c632fb0bcae1b', salt ='' where login = 'admin';
-hashed password is *password*
+mysql -u root -p bugzilla < /root/qabugsbackup.sql
 ```
