@@ -73,8 +73,9 @@ $db_user = 'bugzilla'
 $db_pass = 'bugzilla@123' 
 $db_sock = '/tmp/mysql.sock'
 ```
+```
 ./checksetup.pl
-
+```
 ### APACHE CONFIGURATION
 ```
 yum install httpd
@@ -98,13 +99,16 @@ ErrorLog /var/log/httpd/bugzilla.example.com-error_log
 CustomLog /var/log/httpd/bugzilla.example.com-access_log common
 </VirtualHost>
 ```
+```
 chown -R apache:apache /var/www/html/bugzilla
 systemctl stop firewalld
 systemctl disable firewalld
 nano /etc/sysconfig/selinux 
-*set SELINUX=disabled
+```
+> set SELINUX=disabled
+```
 reboot
-
+```
 ### FIREWALL PERMISSION
 ```
 sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
